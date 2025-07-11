@@ -111,7 +111,11 @@ def handle_training(job_input):
     )
     
     # Load model and tokenizer
-    finetuner.load_model_and_tokenizer()
+    load_checkpoint = job_input.get("load_checkpoint")
+    if load_checkpoint:
+        finetuner.load_checkpoint(load_checkpoint)
+    else:
+        finetuner.load_model_and_tokenizer()
     
     # Prepare datasets
     train_dataset = finetuner.prepare_dataset(job_input["data_path"])

@@ -575,7 +575,10 @@ def main():
             raise ValueError("--data_path is required for training mode")
         
         # Load model and tokenizer
-        finetuner.load_model_and_tokenizer()
+        if args.load_checkpoint:
+            finetuner.load_checkpoint(args.load_checkpoint)
+        else:
+            finetuner.load_model_and_tokenizer()
         
         # Prepare datasets
         train_dataset = finetuner.prepare_dataset(args.data_path)

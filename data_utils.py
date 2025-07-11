@@ -175,7 +175,7 @@ class DataProcessor:
         """
         sample_data = []
         
-        # Sample tasks for demonstration
+        # Sample tasks for demonstration (in this sample, it just translates phrases English to French)
         tasks = [
             ("Translate this to French:", "Traduisez ceci en français:"),
             ("Summarize this text:", "Résumez ce texte:"),
